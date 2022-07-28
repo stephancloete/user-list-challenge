@@ -15,17 +15,15 @@ function userChoice(){
 
             userList.push(userOne, userTwo, userThree);
             console.log(userList);
-            
-            const newUsers = []
-
             break;
 
         //Remove users
         case '2':
+
             toRemove = prompt("Type the index number of the user you would like to remove:");
             var removed = userList.splice(toRemove, 1);
-            console.log(removed);
-            console.log(userList);
+            console.log("Removed: " + removed);
+            console.log("Appended list: " + userList);
             break;
 
         //Display all users
@@ -35,22 +33,20 @@ function userChoice(){
             for (let i = 0; i < userList.length; i++) {
             result = result.concat(userList[i]);
             }
-            
-            console.log(result);
 
             document.getElementById("join").innerHTML = result;
-            //console.log(joined);*/
+            
             break;
 3
         //Sort users
         case '4':
-         
+            arr = userList.sort((a, b) => a.localeCompare(b));
+            console.log(arr);
             break;
 
-        //Invalid Selection
+        //Diplay Invalid Selection
         default:
             alert("Invalid selection");
-            promptMenu();
             break;
     }
 }
